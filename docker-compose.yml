@@ -1,0 +1,35 @@
+version: '2'
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "8000:80"
+            - "3000:443"
+        restart: always
+        volumes:
+            - "./etc/nginx/default.conf:/etc/nginx/conf.d/default.conf"
+            - "./etc/ssl:/etc/ssl"
+            - "./web:/web"
+        depends_on:
+            - "php"
+            - "mongodb"
+    php:
+        image: nanoninja/php-fpm
+        restart: always
+        volumes:
+            - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+            - ./web:/web
+    composer:
+        image: composer/composer
+        volumes:
+            - ./web/app:/app
+        command: install
+    mongodb:
+        image: mongo
+        container_name: mongo
+        restart: always
+        volumes:
+            - ./data/db/mongo:/data/db
+        ports:
+            - "27020:27017"
+        command: --storageEngine wiredTiger
