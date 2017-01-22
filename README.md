@@ -1,6 +1,6 @@
-# Nginx PHP MongoDB
+# Nginx PHP Mongo
 
-Docker running Nginx, PHP-FPM, MongoDB.
+Docker running Nginx, PHP-FPM, Mongo.
 
 **THIS ENVIRONMENT SHOULD ONLY BE USED FOR DEVELOPMENT!**
 
@@ -9,7 +9,7 @@ Docker running Nginx, PHP-FPM, MongoDB.
 ## Images to use
 
 * [Nginx](https://hub.docker.com/_/nginx/)
-* [MongoDB](https://hub.docker.com/_/mongo/)
+* [Mongo](https://hub.docker.com/_/mongo/)
 * [PHP-FPM](https://hub.docker.com/r/nanoninja/php-fpm/)
 * [Composer](https://hub.docker.com/r/composer/composer/)
 * [Generate Certificate](https://hub.docker.com/r/jacoelho/generate-certificate/)
@@ -55,8 +55,12 @@ docker-nginx-php-mongo
 └── web
     ├── app
     │   ├── composer.json
+    │   ├── phpunit.xml.dist
     │   ├── src
-    │   └── tests
+    │   │   └── Foo.php
+    │   └── test
+    │       ├── FooTest.php
+    │       └── bootstrap.php
     └── public
         └── index.php
 ```
@@ -84,7 +88,7 @@ var_dump($result);
 docker run --rm -v $(pwd)/web/app:/app -v ~/.ssh:/root/.ssh composer/composer update
 ```
 
-## Connecting to mongodb
+## Connecting to mongo
 ```shell
 docker exec -it mongo bash
 ```

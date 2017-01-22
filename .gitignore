@@ -4,3 +4,6 @@
 *.test
 .*.swp
 .DS_Store
+.idea/
+nbproject/
+/nbproject/private/
