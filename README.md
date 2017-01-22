@@ -65,7 +65,20 @@ docker-nginx-php-mongo
         └── index.php
 ```
 
-## Connecting from PHP
+## Configuring Xdebug
+
+Edit **etc/php/php.ini** file and add your ip address :
+
+```ini
+xdebug.remote_host=192.168.0.1
+```
+
+## Updating composer
+```sh
+docker run --rm -v $(pwd)/web/app:/app -v ~/.ssh:/root/.ssh composer/composer update
+```
+
+## Connecting Mongo from PHP
 
 [Documentation](http://php.net/manual/fr/set.mongodb.php)
 
@@ -83,13 +96,8 @@ var_dump($result);
 ?>
 ```
 
-## Updating composer
-```shell
-docker run --rm -v $(pwd)/web/app:/app -v ~/.ssh:/root/.ssh composer/composer update
-```
-
 ## Connecting to mongo
-```shell
+```sh
 docker exec -it mongo bash
 ```
 
