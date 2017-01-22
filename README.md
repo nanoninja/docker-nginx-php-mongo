@@ -31,7 +31,7 @@ Docker running Nginx, PHP-FPM, MongoDB.
 3. Open your favorite browser :
 
     * [http://localhost:8000](http://localhost:8000/)
-    * [https://localhost:3000](https://localhost:3000/) ([HTTPS](https://github.com/nanoninja/docker-nginx-php-mysql#generating-ssl-certificates) not configured by default)
+    * [https://localhost:3000](https://localhost:3000/) ([HTTPS](https://github.com/nanoninja/docker-nginx-php-mongo#generating-ssl-certificates) not configured by default)
 
 ## Directory tree
 
@@ -120,6 +120,8 @@ mongodump --port 27020 --db test --collection mycollection --out $(pwd)/data/db/
     ```
 
 ## Cleaning project
+
+**Warning**: Clears all containers and volumes.
 
 ```sh
 $ ./bin/linux/clean.sh $(pwd)
