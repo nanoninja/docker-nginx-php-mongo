@@ -131,6 +131,12 @@ mongodump --port 27020 --db test --collection mycollection --out $(pwd)/data/db/
     # }
     ```
 
+## Generating API Documentation
+
+```sh
+./web/app/vendor/apigen/apigen/bin/apigen generate -s web/app/src -d web/app/doc
+```
+
 ## Cleaning project
 
 **Warning**: Clears all containers and volumes.
