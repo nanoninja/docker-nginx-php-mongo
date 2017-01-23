@@ -1,10 +1,11 @@
 {
     "require": {
-        
+
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "2.*",
-        "phpunit/phpunit": "5.7.*"
+        "phpunit/phpunit": "5.7.*",
+        "apigen/apigen": "master"
     },
     "autoload": {
         "psr-4": {
